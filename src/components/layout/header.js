@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
+import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import Logo from './logo'
+import Logo from "./Logo"
 
-const MenuBar = styled.header`
+const Wrapper = styled.div`
   position: fixed;
   width: 100%;
+  z-index: 9;
   background-color: rgba(255, 255, 255, ${props => props.opacity});
   color: black;
-  filter: ${({ opacity }) => opacity ? 'none' : 'brightness(0) invert(1)' };
-
+  filter: ${({ opacity }) => (opacity ? "none" : "brightness(0) invert(1)")};
   transition: all 0.3s;
 
   h1 {
@@ -22,40 +23,67 @@ const MenuBar = styled.header`
   }
 `
 
+const HeaderWrapper = styled.div`
+  z-index: 4;
+  position: relative;
+  padding: 0px 35px;
+`
+
+const MenuBar = styled.div`
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const LogoWrapper = styled.div``
+const MenuWrapper = styled.div`
+  align-self: center;
+`
+
+const LinkMenu = styled(Link)`
+  margin: 0px 16px;
+  cursor: pointer;
+  color: #8e8e93;
+
+  :hover {
+    color: #a134ea;
+  }
+`
+
 const Header = ({ siteTitle }) => {
   const [opacity, setOpacity] = useState(0)
-
-  useEffect(() => {
-    window.addEventListener('scroll', headerOnScroll)
-
-    return () => {
-      window.removeEventListener('scroll', headerOnScroll)
-    }
-  }, [headerOnScroll])
-
+  const { t } = useTranslation()
   const headerOnScroll = () => {
     if (window.pageYOffset <= 100) {
-      setOpacity(window.pageYOffset * 0.008)
+      setOpacity(window.pageYOffset * 0.009)
     }
   }
 
+  useEffect(() => {
+    window.addEventListener("scroll", headerOnScroll)
+
+    return () => {
+      window.removeEventListener("scroll", headerOnScroll)
+    }
+  })
+
   return (
-    <MenuBar opacity={opacity}>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
-        }}
-      >
-        <h1>
-          <Link to="/">
-            <Logo />
-          </Link>
-          {/* <Link to="/">{siteTitle}</Link> */}
-        </h1>
-      </div>
-    </MenuBar>
+    <Wrapper opacity={opacity}>
+      <HeaderWrapper>
+        <MenuBar>
+          <LogoWrapper>
+            <Link to="/">
+              <Logo />
+            </Link>
+          </LogoWrapper>
+          <MenuWrapper>
+            <LinkMenu to="/">{t("case_studies_menu")}</LinkMenu>
+            <LinkMenu to="/">{t("wiki_menu")}</LinkMenu>
+            <LinkMenu to="/">{t("vision_menu")}</LinkMenu>
+          </MenuWrapper>
+        </MenuBar>
+      </HeaderWrapper>
+    </Wrapper>
   )
 }
 
