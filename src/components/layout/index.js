@@ -7,10 +7,12 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import Header from "./Header"
 import { useStaticQuery, graphql } from "gatsby"
 import { withTrans } from "../../i18n/withTrans"
 
-import Header from "./Header"
+import { ThemeProvider } from 'styled-components'
+import theme from "../../styles/theme"
 import "../../styles/layout.css"
 
 const Layout = ({ children, t, i18n }) => {
@@ -25,7 +27,7 @@ const Layout = ({ children, t, i18n }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
       <footer>
@@ -33,7 +35,7 @@ const Layout = ({ children, t, i18n }) => {
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
-    </>
+    </ThemeProvider>
   )
 }
 

@@ -1,14 +1,21 @@
 import React from "react"
-import styled from "styled-components"
-import LogoImage from "../../images/logo.png"
-
-const CustomImg = styled.img`
-  width: 118px;
-  margin-bottom: 0px;
-`
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Logo = () => {
-  return <CustomImg src={LogoImage} />
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 118) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
+  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />
 }
 
 export default Logo
