@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   width: 100%;
   z-index: 9;
   background-color: rgba(255, 255, 255, ${props => props.opacity});
-  
+
   backdrop-filter: ${({ opacity }) => (opacity === 0 ? "none" : "blur(5px)")};
   color: black;
   filter: ${({ opacity }) => (opacity ? "none" : "brightness(0) invert(1)")};
@@ -67,7 +67,7 @@ const Header = ({ siteTitle }) => {
     return () => {
       window.removeEventListener("scroll", headerOnScroll)
     }
-  })
+  }, [opacity])
 
   return (
     <Wrapper opacity={opacity}>
