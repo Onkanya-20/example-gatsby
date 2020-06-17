@@ -111,10 +111,9 @@ const typography = {
   ),
   title: createFontStyle(
     createFontFamilyPoppins(),
-    createFontSizeStyle(18),
-    createFontWeightStyle("normal"),
+    createFontSizeStyle(22),
+    createFontWeightStyle(500),
     createLineHeight("19px"),
-    createLetterSpacing("1px")
   ),
   captionHighLight: createFontStyle(
     createFontFamilyPoppins(),

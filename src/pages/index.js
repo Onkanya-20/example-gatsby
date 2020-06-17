@@ -1,126 +1,57 @@
 import React from "react"
-import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import BgImage from "../images/bg-image.jpg"
 import ProcuratioImage from "../images/Rectangle-1.png"
 
-import { Link } from "gatsby"
-import { ButtonNoneBg } from "../components/button"
-const Banner = styled.div`
-  height: 742px;
-  width: 100%;
-  background-image: url(${BgImage});
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 200px 35px 150px 35px;
-`
-
-const BgOverlay = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 742px;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(240deg, #e10f77 0%, #37c4e7 100%);
-  opacity: 0.4;
-`
-
-const TextWrapper = styled.div`
-  display: flex;
-  color: ${({ theme }) => theme.color.textWhite};
-  position: relative;
-  width: 100%;
-  margin: 0px auto;
-  max-width: 1200px;
-  flex-flow: row wrap;
-`
-
-const ContentWrapper = styled.div`
-  display: flex;
-  color: ${({ theme }) => theme.color.textWhite};
-  position: relative;
-  width: 100%;
-  margin: 0px auto;
-  max-width: 1200px;
-  padding: 100px 0px;
-`
-
-const ImageWrapper = styled.div`
-  ${({ theme }) => theme.typography.link()}
-  color: ${({ theme }) => theme.color.textContent};
-  width: 40%;
-`
-
-const TopicsWrapper = styled.div`
-  ${({ theme }) => theme.typography.subHeadline()}
-`
-
-const DetailWrapper = styled.div`
-  ${({ theme }) => theme.typography.link()}
-`
-
-const DescWrapper = styled.div`
-  color: ${({ theme }) => theme.color.textContent};
-  width: 60%;
-  align-self: center;
-`
-
-const TitleWrapper = styled.div`
-  ${({ theme }) => theme.typography.largeTitle()};
-  width: 100%;
-`
-
-const TitleDescription = styled.div`
-  ${({ theme }) => theme.typography.description()};
-  width: 100%;
-  margin: 32px 70px 32px 0px;
-`
+// Components
+import Warpper from "../components/wrapper"
+import { ButtonLink } from "../components/button"
+import Banner from '../components/landing/banner'
+import Content, { PathWrapper, DetailWrapper, TopicsWrapper } from '../components/landing/content'
+import Customer from '../components/landing/customer'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    {/* first content */}
-    <Banner>
-      <BgOverlay />
-      <TextWrapper>
-        <TitleWrapper>
-          Your personal assistant <br />
-          could be digital.
-        </TitleWrapper>
-        <TitleDescription>
-          Automating certain aspects of your business doesn’t mean you need to
-          reinvent the wheel. You just need the tools and a service provider
-          with know-how. And the wheels will spin for you.
-        </TitleDescription>
-        {/* <ButtonNoneBg to="/">Call Back</ButtonNoneBg> */}
-        <ButtonNoneBg to="/">Call Back</ButtonNoneBg>
-      </TextWrapper>
-    </Banner>
-    <ContentWrapper>
-      <ImageWrapper>
-        <img src={ProcuratioImage} />
-      </ImageWrapper>
-      <DescWrapper>
-        <TopicsWrapper>Haute cuisine in hospitals.</TopicsWrapper>
-        <DetailWrapper>
-          Thanks to a smart feedback tool, hospital food may soon have more
-          courses than a nurse’s night school.
-        </DetailWrapper>
-      </DescWrapper>
-    </ContentWrapper>
-    <div>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </div>
+    {/* Banner */}
+    <Banner />
+
+    {/* Product Content */}
+    <Warpper>
+      <Content image={ProcuratioImage}>
+        <PathWrapper><b>20IT</b> / case studies / procuratio</PathWrapper>
+          <TopicsWrapper>Haute cuisine <br />in hospitals.</TopicsWrapper>
+          <DetailWrapper>
+            Thanks to a smart feedback tool, hospital food may soon have more
+            courses than a nurse’s night school.
+          </DetailWrapper>
+          <ButtonLink to="/">{`Details >`}</ButtonLink>
+      </Content>
+      <Content image={ProcuratioImage} mirror>
+        <PathWrapper><b>20IT</b> / wiki / big data​</PathWrapper>
+          <TopicsWrapper>Big data.<br/>Short explanation.</TopicsWrapper>
+          <DetailWrapper>
+            You have heard the term “big data”. But what does it really mean?
+            Pro or not, 20IT wiki makes tech easy to understand.
+          </DetailWrapper>
+          <ButtonLink to="/">{`Details >`}</ButtonLink>
+      </Content>
+      <Content image={ProcuratioImage}>
+        <PathWrapper><b>20IT</b> / team / vision</PathWrapper>
+          <TopicsWrapper>Leading.<br/>By example.</TopicsWrapper>
+          <DetailWrapper>
+            20IT works shoulder to shoulder with clients – to make tomorrow’s
+            projects a reality. Here’s how:
+          </DetailWrapper>
+          <ButtonLink to="/">{`Details >`}</ButtonLink>
+      </Content>
+    </Warpper>
+    
+    {/* Trust content */}
+    <Warpper>
+      <Customer />
+    </Warpper>
   </Layout>
 )
 

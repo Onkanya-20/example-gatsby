@@ -8,3 +8,13 @@ export const ButtonNoneBg = styled(Link)`
   padding: 19px 90px;
   border-radius: 50px;
 `
+export const ButtonLink = styled(Link)`
+  ${({ theme }) => theme.typography.link()};
+  color: ${({ theme }) => theme.color.textLink};
+  background-color: none;
+  transition: color 0.1s;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.textLinkHover};
+  }
+`
