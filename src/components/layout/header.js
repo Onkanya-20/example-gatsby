@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import Logo from "./Logo"
+import Logo from "../../images/logo.png"
 
 const Wrapper = styled.div`
   position: fixed;
@@ -37,7 +37,11 @@ const MenuBar = styled.div`
   justify-content: space-between;
 `
 
-const LogoWrapper = styled.div``
+const LogoWrapper = styled.img`
+
+width: 118px;
+`
+
 const MenuWrapper = styled.div`
   align-self: center;
 `
@@ -55,29 +59,33 @@ const LinkMenu = styled(Link)`
 const Header = ({ siteTitle }) => {
   const [opacity, setOpacity] = useState(0)
   const { t } = useTranslation()
-  const headerOnScroll = () => {
-    if (window.pageYOffset <= 100) {
-      setOpacity(window.pageYOffset * 0.009)
-    }
-  }
 
+  
   useEffect(() => {
+    const headerOnScroll = () => {
+        let op = window.pageYOffset
+        if (op >= 100) {
+          op = 100
+          setOpacity(op * 0.009)
+        } else {
+          setOpacity(0)
+        }
+    }
+
     window.addEventListener("scroll", headerOnScroll)
 
     return () => {
       window.removeEventListener("scroll", headerOnScroll)
     }
-  })
+  }, [opacity])
 
   return (
     <Wrapper opacity={opacity}>
       <HeaderWrapper>
         <MenuBar>
-          <LogoWrapper>
             <Link to="/">
-              <Logo />
+              <LogoWrapper src={Logo} alt="20IT index" />
             </Link>
-          </LogoWrapper>
           <MenuWrapper>
             <LinkMenu to="/">{t("case_studies_menu")}</LinkMenu>
             <LinkMenu to="/wiki">{t("wiki_menu")}</LinkMenu>

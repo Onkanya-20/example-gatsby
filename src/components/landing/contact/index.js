@@ -13,6 +13,7 @@ const ContactWrapper = styled.div`
   background-size: contain;
   background-position: top right;
   background-color: #faf5fe;
+  border: solid 1px #f3f0ee;
 `
 
 const DetailtWrapper = styled.div`
@@ -52,7 +53,7 @@ const TextTitle = styled.div`
 
 const TextAddress = styled.div`
   ${({ theme }) => theme.typography.titleHighLight()}
-  line-height: 1.8rem;
+  line-height: 2.2rem;
   margin-bottom: 24px;
 `
 

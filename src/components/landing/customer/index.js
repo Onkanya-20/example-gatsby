@@ -18,7 +18,6 @@ const CustomerWrapper = styled.div`
   width: 100%;
   margin: 0px auto;
   max-width: 1200px;
-  padding: 0px 35px 20px 35px;
   flex-flow: row wrap;
   justify-content: center;
 `
@@ -28,9 +27,12 @@ const CustomerTitle = styled.div`
 `
 
 const CustomerValue = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 80px;
   line-height: 100px;
   width: 100%;
+  text-align: center;
 `
 
 const CustomerLogoWrapper = styled.img`
@@ -39,8 +41,11 @@ const CustomerLogoWrapper = styled.img`
   :hover {
     filter: none;
   }
-  margin: 10px;
   vertical-align: middle;
+`
+
+const ImageWrapper = styled.div`
+  width: 20%;
 `
 
 function Customer() {
@@ -61,11 +66,13 @@ function Customer() {
       <CustomerTitle>Thanks for trusting in 20IT.</CustomerTitle>
       <CustomerValue>
         {customerLogo.map((logo, index) => (
-          <CustomerLogoWrapper
-            src={logo}
-            alt="customer logo"
-            key={`${logo}-${index}`}
-          />
+          <ImageWrapper>
+            <CustomerLogoWrapper
+              src={logo}
+              alt="customer logo"
+              key={`${logo}-${index}`}
+            />
+          </ImageWrapper>
         ))}
       </CustomerValue>
     </CustomerWrapper>

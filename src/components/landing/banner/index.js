@@ -1,14 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-// static
-import BgImage from "../../../images/bg-image.jpg"
 // Components
 import { ButtonNoneBg } from "../../button"
 
 const BannerWarpper = styled.div`
   height: 742px;
   width: 100%;
-  background-image: url(${BgImage});
+  background-image: url(${({ image }) => image});
   background-repeat: no-repeat;
   background-size: cover;
   padding: 200px 35px 150px 35px;
@@ -45,19 +43,16 @@ export const TitleDescription = styled.div`
   margin: 32px 70px 32px 0px;
 `
 
-const Banner = () => {
+const Banner = (props) => {
   return (
-    <BannerWarpper>
+    <BannerWarpper image={props.image}>
       <BgOverlay />
       <TextWrapper>
         <TitleWrapper>
-          Your personal assistant <br />
-          could be digital.
+          { props.title }
         </TitleWrapper>
         <TitleDescription>
-          Automating certain aspects of your business doesn’t mean you need to
-          reinvent the wheel. You just need the tools and a service provider
-          with know-how. And the wheels will spin for you.
+          { props.description }
         </TitleDescription>
         {/* <ButtonNoneBg to="/">Call Back</ButtonNoneBg> */}
         <ButtonNoneBg to="/">Call Back</ButtonNoneBg>

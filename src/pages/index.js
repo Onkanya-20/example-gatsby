@@ -1,12 +1,13 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+// Static
+import BgImage from "../images/bg-image.jpg"
 import ProcuratioImage from "../images/Rectangle-1.png"
 import BigdataImage from "../images/Rectangle-2.png"
 import VisionImage from "../images/Rectangle-3.png"
-
 // Components
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import Wrapper from "../components/wrapper"
 import { ButtonLink } from "../components/button"
 import Banner from "../components/landing/banner"
@@ -22,7 +23,15 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     {/* Banner */}
-    <Banner />
+    <Banner 
+      image={BgImage}
+      title={<>Your personal assistant<br />could be digital.</>}
+      description={<>Automating certain aspects of your business doesn’t mean you need to
+        reinvent the wheel. You just need the tools and a service provider
+        with know-how. And the wheels will spin for you.</>
+      }
+      
+    />
 
     {/* Product Content */}
     <Wrapper>
