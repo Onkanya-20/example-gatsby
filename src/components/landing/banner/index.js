@@ -1,5 +1,5 @@
 import React from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 // static
 import BgImage from "../../../images/bg-image.jpg"
 // Components
@@ -44,7 +44,6 @@ export const TitleDescription = styled.div`
   width: 100%;
   margin: 32px 70px 32px 0px;
 `
-
 
 const Banner = () => {
   return (

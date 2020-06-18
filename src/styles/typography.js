@@ -113,7 +113,7 @@ const typography = {
     createFontFamilyPoppins(),
     createFontSizeStyle(22),
     createFontWeightStyle(500),
-    createLineHeight("19px"),
+    createLineHeight("19px")
   ),
   captionHighLight: createFontStyle(
     createFontFamilyPoppins(),
@@ -124,10 +124,8 @@ const typography = {
   ),
   titleHighLight: createFontStyle(
     createFontFamilyPoppins(),
-    createFontSizeStyle(20),
-    createFontWeightStyle("bold"),
-    createLineHeight("19px"),
-    createLetterSpacing("1px")
+    createFontSizeStyle(24),
+    createFontWeightStyle("400")
   ),
   link: createFontStyle(
     createFontFamilyPoppins(),

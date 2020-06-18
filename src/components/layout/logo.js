@@ -15,7 +15,9 @@ const Logo = () => {
     }
   `)
 
-  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />
+  return (
+    <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="20IT Logo" />
+  )
 }
 
 export default Logo

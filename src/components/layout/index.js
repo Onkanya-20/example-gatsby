@@ -8,10 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Header from "./header"
+import Footer from "./footer"
 import { useStaticQuery, graphql } from "gatsby"
 import { withTrans } from "../../i18n/withTrans"
 
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from "styled-components"
 import theme from "../../styles/theme"
 import "../../styles/layout.css"
 
@@ -30,11 +31,7 @@ const Layout = ({ children, t, i18n }) => {
     <ThemeProvider theme={theme}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </ThemeProvider>
   )
 }

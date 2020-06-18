@@ -18,3 +18,11 @@ export const ButtonLink = styled(Link)`
     color: ${({ theme }) => theme.color.textLinkHover};
   }
 `
+
+export const ButtonBg = styled(Link)`
+  ${({ theme }) => theme.typography.button()}
+  color: ${({ theme }) => theme.color.textWhite};
+  background-color: ${({ theme }) => theme.color.textLink};
+  padding: 15px 80px;
+  border-radius: 50px;
+`

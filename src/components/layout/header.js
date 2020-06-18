@@ -67,7 +67,7 @@ const Header = ({ siteTitle }) => {
     return () => {
       window.removeEventListener("scroll", headerOnScroll)
     }
-  }, [opacity])
+  })
 
   return (
     <Wrapper opacity={opacity}>
@@ -80,7 +80,7 @@ const Header = ({ siteTitle }) => {
           </LogoWrapper>
           <MenuWrapper>
             <LinkMenu to="/">{t("case_studies_menu")}</LinkMenu>
-            <LinkMenu to="/">{t("wiki_menu")}</LinkMenu>
+            <LinkMenu to="/wiki">{t("wiki_menu")}</LinkMenu>
             <LinkMenu to="/">{t("vision_menu")}</LinkMenu>
           </MenuWrapper>
         </MenuBar>
