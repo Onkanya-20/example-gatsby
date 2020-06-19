@@ -1,17 +1,20 @@
 import React from "react"
 import styled from "styled-components"
-import Logo from "../../images/logo.png"
+import Logo from "../../images/Frame-4.png"
 
 const FooterWrapper = styled.footer`
-padding: 60px 35px;
+  padding: 60px 35px;
+  box-shadow: inset 0 1px 0 #e0e0e0;
 `
-const LogoWrapper = styled.img`
+const LogoWrapper = styled.div`
+  float: left;
+`
+const CustomLogo = styled.img`
   width: 50px;
-  filter: grayscale(200%);
+  vertical-align: middle;
 `
-const PrivacyWrapper = styled.span`
 
-`
+const PrivacyWrapper = styled.span``
 
 const CopyrightWrapper = styled.span`
   float: right;
@@ -19,10 +22,10 @@ const CopyrightWrapper = styled.span`
 const Footer = () => {
   return (
     <FooterWrapper>
-      <LogoWrapper src={Logo} alt="Logo footer" />
-      <PrivacyWrapper>
-        a company of 20Scoops PRIVACY IMPRINT
-      </PrivacyWrapper>
+      <LogoWrapper>
+        <CustomLogo src={Logo} alt="Logo footer" />
+        <PrivacyWrapper>a company of 20Scoops PRIVACY IMPRINT</PrivacyWrapper>
+      </LogoWrapper>
       <CopyrightWrapper>
         © {new Date().getFullYear()} 20IT. All Rights Reserved
       </CopyrightWrapper>

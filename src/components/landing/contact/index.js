@@ -40,10 +40,12 @@ const TextWrapper = styled.div`
 const CaptionWrapper = styled.div`
   ${({ theme }) => theme.typography.subHeadline()}
   margin: 50px 0px;
+  line-height: 2.2rem;
 `
 
 const IconWrapper = styled.div`
   margin: 50px 0px;
+  justify-content: space-between;
 `
 
 const TextTitle = styled.div`
