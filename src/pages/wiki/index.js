@@ -19,6 +19,8 @@ import {
   TitleWrapper,
   WikiWrapper,
   DescWrapper,
+  TopicsWrapper,
+  DetailWrapper
 } from "./index.view"
 
 const IndexPage = () => (
@@ -51,24 +53,106 @@ const IndexPage = () => (
             </IconWrapper>
             <TitleWrapper>Agile software development</TitleWrapper>
           </WikiWrapper>
-          <DescWrapper>fds</DescWrapper>
+          <DescWrapper className="desc" color="#43afdc">
+            <TopicsWrapper>
+              <b>
+                Agile software <br />development
+              </b>
+            </TopicsWrapper>
+            <DetailWrapper> Working “agile” means working flexibly and with the utmost transparency for team and clients. A low-risk method, due to frequent feedback intervals in which the development of the project is being assessed and the next most valuable step defined and organised.</DetailWrapper>
+          </DescWrapper>
         </WikiCard>
         <WikiCard>
-          <IconWrapper>
-            <img src={AiIcon} />
-          </IconWrapper>
-          <TitleWrapper>Artificial Intelligence</TitleWrapper>
+          <WikiWrapper>
+            <IconWrapper>
+              <img src={AiIcon} />
+            </IconWrapper>
+            <TitleWrapper>Artificial Intelligence</TitleWrapper>
+          </WikiWrapper>
+          <DescWrapper className="desc" color="#A134EA">
+            <TopicsWrapper>
+              <b>
+                Artificial intelligence (AI)
+              </b>
+            </TopicsWrapper>
+            <DetailWrapper> 
+            In computer science, AI is intelligence, demonstrated by machines. It is used to maximise the chance of a successful outcome of an achieved goal. Simply put, think of it as the “heavy lifting” to find the ideal solution out of countless scenarios.
+            </DetailWrapper>
+          </DescWrapper>
         </WikiCard>
         <WikiCard>
-          <IconWrapper>
-            <img src={BlockChainIcon} />
-          </IconWrapper>
-          <TitleWrapper>Blockchain</TitleWrapper>
+          <WikiWrapper>
+            <IconWrapper>
+              <img src={BlockChainIcon} />
+            </IconWrapper>
+            <TitleWrapper>Blockchain</TitleWrapper>
+          </WikiWrapper>
+          <DescWrapper className="desc" color="#A134EA">
+            <TopicsWrapper>
+              <b>
+              Blockchain
+              </b>
+            </TopicsWrapper>
+            <DetailWrapper>
+            The blockchain is quite literally a chain of blocks in which data is decentralised - copying, saving, and protecting the data of the previous block. This method of data management can be used to make automated processes safe and secure - e.g. an app on Ethereum can be used to automatically handle payment for goods and services.
+            </DetailWrapper>
+          </DescWrapper>
         </WikiCard>
       </RowWrapper>
-      {/* <WikiCard></WikiCard>
-      <WikiCard></WikiCard>
-      <WikiCard></WikiCard> */}
+      <RowWrapper>
+        <WikiCard>
+          <WikiWrapper>
+            <IconWrapper>
+              <img src={AgileIcon} />
+            </IconWrapper>
+            <TitleWrapper>Agile software development</TitleWrapper>
+          </WikiWrapper>
+          <DescWrapper className="desc" color="#43afdc">
+            <TopicsWrapper>
+              <b>
+                Agile software <br />development
+              </b>
+            </TopicsWrapper>
+            <DetailWrapper> Working “agile” means working flexibly and with the utmost transparency for team and clients. A low-risk method, due to frequent feedback intervals in which the development of the project is being assessed and the next most valuable step defined and organised.</DetailWrapper>
+          </DescWrapper>
+        </WikiCard>
+        <WikiCard>
+          <WikiWrapper>
+            <IconWrapper>
+              <img src={AiIcon} />
+            </IconWrapper>
+            <TitleWrapper>Artificial Intelligence</TitleWrapper>
+          </WikiWrapper>
+          <DescWrapper className="desc" color="#A134EA">
+            <TopicsWrapper>
+              <b>
+                Artificial intelligence (AI)
+              </b>
+            </TopicsWrapper>
+            <DetailWrapper> 
+            In computer science, AI is intelligence, demonstrated by machines. It is used to maximise the chance of a successful outcome of an achieved goal. Simply put, think of it as the “heavy lifting” to find the ideal solution out of countless scenarios.
+            </DetailWrapper>
+          </DescWrapper>
+        </WikiCard>
+        <WikiCard>
+          <WikiWrapper>
+            <IconWrapper>
+              <img src={BlockChainIcon} />
+            </IconWrapper>
+            <TitleWrapper>Blockchain</TitleWrapper>
+          </WikiWrapper>
+          <DescWrapper className="desc" color="#A134EA">
+            <TopicsWrapper>
+              <b>
+              Blockchain
+              </b>
+            </TopicsWrapper>
+            <DetailWrapper>
+            The blockchain is quite literally a chain of blocks in which data is decentralised - copying, saving, and protecting the data of the previous block. This method of data management can be used to make automated processes safe and secure - e.g. an app on Ethereum can be used to automatically handle payment for goods and services.
+            </DetailWrapper>
+          </DescWrapper>
+        </WikiCard>
+      </RowWrapper>
     </CollapeDiv>
   </Layout>
 )

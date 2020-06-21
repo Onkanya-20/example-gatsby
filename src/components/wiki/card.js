@@ -11,65 +11,32 @@ const SlideUp = keyframes`
     }
 `
 
-const ComeIn = keyframes`
-  from {
-    transform: translateY(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-100%);
-  }
-`
-
 const CardWrapper = styled.div`
-  /* overflow: hidden; */
   width: 33.33%;
   position: relative;
   padding: 0px 4px;
-  /* transform: translateY(100%); */
 
 
   :nth-child(1) {
     animation: ${SlideUp} 0.5s linear;
-    /* animation-delay: 0.5s; */
-    /* transform: translateY(0); */
-    /* animation-delay: 0.3s; */
-    /* animation: ${SlideUp} 0.2s linear; */
   }
   :nth-child(2) {
-    /* animation-duration: 0.2s; */
-    /* animation: ${ComeIn} 0.4s linear ; */
-    /* animation-delay: 0.6s; */
     animation: ${SlideUp} 1s linear;
-
-
-    /* animation-delay: 0.6s;
-    animation: ${SlideUp} 0.6s linear; */
   }
   :nth-child(3) {
     animation: ${SlideUp} 1.5s linear;
-
-    /* animation: ${ComeIn} 0.6s linear ; */
-    /* animation-delay: 1s; */
-    /* animation-delay: 1s;
-    animation: ${SlideUp} 1s linear; */
   }
 `
 
 const CardContainer = styled.div`
-  /* position: relative; */
-
   display: block;
-  padding: 50px;
-  /* margin: 1rem; */
+  padding: 70px;
   width: 100%;
   height: 100%;
-  /* height: 530px; */
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0px 3px 4px #888888;
   border-radius: 5px;
-  text-align: center;
 
   /* -webkit-animation-name: ${SlideUp};
   animation-name: ${SlideUp};
@@ -94,7 +61,7 @@ const CardContainer = styled.div`
   .desc {
     border-radius: 5px;
     color: #fff;
-    background-color: #43afdc;
+    /* background-color: #43afdc; */
     position: absolute;
     height: 100%;
     width: 100%;
@@ -120,7 +87,7 @@ export const WikiCard = props => {
     <CardWrapper>
       <CardContainer>
         {props.children}
-        <div className="desc">test</div>
+        {/* <div className="desc">test</div> */}
       </CardContainer>
     </CardWrapper>
   )

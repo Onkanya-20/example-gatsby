@@ -17,4 +17,5 @@ export const RowWrapper = styled.div`
   width: 100%;
   flex-flow: row;
   max-width: 1200px;
+  margin-bottom: 16px;
 `
