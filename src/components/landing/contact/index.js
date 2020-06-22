@@ -46,6 +46,9 @@ const CaptionWrapper = styled.div`
 const IconWrapper = styled.div`
   margin: 50px 0px;
   justify-content: space-between;
+  img {
+    margin-right: 10px;
+  }
 `
 
 const TextTitle = styled.div`
@@ -59,7 +62,7 @@ const TextAddress = styled.div`
   margin-bottom: 24px;
 `
 
-const Contact = () => {
+const Contact = props => {
   return (
     <ContactWrapper>
       <DetailtWrapper>
@@ -70,18 +73,20 @@ const Contact = () => {
           </CaptionWrapper>
           <ButtonBg to="/">get a call back</ButtonBg>
           <IconWrapper>
-            <img src={FacebookIcon} />
-            <img src={LinkinIcon} />
+            <a href={props.facebookLink}>
+              <img src={FacebookIcon} alt="Facebook Icon" target="_blank" />
+            </a>
+            <a href={props.linkedinLink}>
+              <img src={LinkinIcon} alt="Linkedin Icon" />
+            </a>
           </IconWrapper>
         </TextWrapper>
         <TextWrapper>
           <AddressWrapper>
             <TextTitle>We are hear:</TextTitle>
-            <TextAddress>
-              20IT GmbH Friedensallee 7-9 22765 Hamburg Germany
-            </TextAddress>
+            <TextAddress>{props.address}</TextAddress>
             <TextTitle>Shoot us a line:</TextTitle>
-            <TextAddress>mail@20it.de</TextAddress>
+            <TextAddress>{props.email}</TextAddress>
           </AddressWrapper>
         </TextWrapper>
       </DetailtWrapper>

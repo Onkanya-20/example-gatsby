@@ -66,12 +66,8 @@ function Customer() {
       <CustomerTitle>Thanks for trusting in 20IT.</CustomerTitle>
       <CustomerValue>
         {customerLogo.map((logo, index) => (
-          <ImageWrapper>
-            <CustomerLogoWrapper
-              src={logo}
-              alt="customer logo"
-              key={`${logo}-${index}`}
-            />
+          <ImageWrapper key={`${logo}-${index}`}>
+            <CustomerLogoWrapper src={logo} alt="customer logo" />
           </ImageWrapper>
         ))}
       </CustomerValue>

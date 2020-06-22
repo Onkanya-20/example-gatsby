@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Logo from "../../images/Frame-4.png"
 
 const FooterWrapper = styled.footer`
-  padding: 60px 35px;
+  padding: 50px 35px 70px 35px;
   box-shadow: inset 0 1px 0 #e0e0e0;
 `
 const LogoWrapper = styled.div`

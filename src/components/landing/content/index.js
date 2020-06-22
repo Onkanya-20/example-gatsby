@@ -27,6 +27,7 @@ export const PathWrapper = styled.div`
 export const TopicsWrapper = styled.div`
   margin: 1.5rem 0;
   ${({ theme }) => theme.typography.subHeadline()}
+  white-space: pre-line;
 `
 
 export const DetailWrapper = styled.div`
@@ -64,7 +65,7 @@ const Content = props => {
       </DescWrapper>
       {!!props.mirror ? (
         <ImageWrapper>
-          <img src={props.image} />
+          <img src={props.image} alt="content landing" />
         </ImageWrapper>
       ) : (
         <></>

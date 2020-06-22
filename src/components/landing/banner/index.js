@@ -35,6 +35,7 @@ export const TextWrapper = styled.div`
 export const TitleWrapper = styled.div`
   ${({ theme }) => theme.typography.largeTitle()};
   width: 100%;
+  white-space: pre-line;
 `
 
 export const TitleDescription = styled.div`
@@ -50,7 +51,11 @@ const Banner = props => {
       <TextWrapper>
         <TitleWrapper>{props.title}</TitleWrapper>
         <TitleDescription>{props.description}</TitleDescription>
-        {props.button ? <ButtonNoneBg to="/">Call Back</ButtonNoneBg> : null}
+        {props.button === false ? null : (
+          <ButtonNoneBg href={props.linkTo} target="_blank">
+            {props.linkLabel}
+          </ButtonNoneBg>
+        )}
       </TextWrapper>
     </BannerWarpper>
   )

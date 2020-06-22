@@ -50,7 +50,7 @@ const IndexPage = () => (
         <WikiCard>
           <WikiWrapper>
             <IconWrapper>
-              <img src={AgileIcon} />
+              <img src={AgileIcon} alt="Agile System" />
             </IconWrapper>
             <TitleWrapper>Agile software development</TitleWrapper>
           </WikiWrapper>
@@ -73,7 +73,7 @@ const IndexPage = () => (
         <WikiCard>
           <WikiWrapper>
             <IconWrapper>
-              <img src={AiIcon} />
+              <img src={AiIcon} alt="Artificial" />
             </IconWrapper>
             <TitleWrapper>Artificial Intelligence</TitleWrapper>
           </WikiWrapper>
@@ -92,9 +92,9 @@ const IndexPage = () => (
         <WikiCard>
           <WikiWrapper>
             <IconWrapper>
-              <img src={BlockChainIcon} />
+              <img src={BlockChainIcon} alt="The BlockChain" />
             </IconWrapper>
-            <TitleWrapper>Big Data</TitleWrapper>
+            <TitleWrapper>Block chain</TitleWrapper>
           </WikiWrapper>
           <DescWrapper className="desc" color="#A134EA">
             <TopicsWrapper>
@@ -114,7 +114,7 @@ const IndexPage = () => (
         <WikiCard>
           <WikiWrapper>
             <IconWrapper>
-              <img src={BigDataIcon} />
+              <img src={BigDataIcon} alt="The Big data" />
             </IconWrapper>
             <TitleWrapper>Big data</TitleWrapper>
           </WikiWrapper>
@@ -133,7 +133,7 @@ const IndexPage = () => (
         <WikiCard>
           <WikiWrapper>
             <IconWrapper>
-              <img src={VrIcon} />
+              <img src={VrIcon} alt="Virtual reality" />
             </IconWrapper>
             <TitleWrapper>Virtual reality</TitleWrapper>
           </WikiWrapper>
@@ -152,7 +152,7 @@ const IndexPage = () => (
         <WikiCard>
           <WikiWrapper>
             <IconWrapper>
-              <img src={DesignThinkingIcon} />
+              <img src={DesignThinkingIcon} alt="Design thinking" />
             </IconWrapper>
             <TitleWrapper>Design thinking</TitleWrapper>
           </WikiWrapper>
