@@ -43,19 +43,14 @@ export const TitleDescription = styled.div`
   margin: 32px 70px 32px 0px;
 `
 
-const Banner = (props) => {
+const Banner = props => {
   return (
     <BannerWarpper image={props.image}>
       <BgOverlay />
       <TextWrapper>
-        <TitleWrapper>
-          { props.title }
-        </TitleWrapper>
-        <TitleDescription>
-          { props.description }
-        </TitleDescription>
-        {/* <ButtonNoneBg to="/">Call Back</ButtonNoneBg> */}
-        <ButtonNoneBg to="/">Call Back</ButtonNoneBg>
+        <TitleWrapper>{props.title}</TitleWrapper>
+        <TitleDescription>{props.description}</TitleDescription>
+        {props.button ? <ButtonNoneBg to="/">Call Back</ButtonNoneBg> : null}
       </TextWrapper>
     </BannerWarpper>
   )
