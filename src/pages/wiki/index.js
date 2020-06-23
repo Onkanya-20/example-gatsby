@@ -21,7 +21,7 @@ import {
   DescWrapper,
   TopicsWrapper,
   DetailWrapper,
-} from "./index.view"
+} from "../../components/wiki/wrapper"
 
 const IndexPage = () => (
   <Layout>
