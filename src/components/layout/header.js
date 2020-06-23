@@ -38,8 +38,7 @@ const MenuBar = styled.div`
 `
 
 const LogoWrapper = styled.img`
-
-width: 118px;
+  width: 118px;
 `
 
 const MenuWrapper = styled.div`
@@ -60,16 +59,15 @@ const Header = ({ siteTitle }) => {
   const [opacity, setOpacity] = useState(0)
   const { t } = useTranslation()
 
-  
   useEffect(() => {
     const headerOnScroll = () => {
-        let op = window.pageYOffset
-        if (op >= 100) {
-          op = 100
-          setOpacity(op * 0.009)
-        } else {
-          setOpacity(0)
-        }
+      let op = window.pageYOffset
+      if (op >= 100) {
+        op = 100
+        setOpacity(op * 0.009)
+      } else {
+        setOpacity(0)
+      }
     }
 
     window.addEventListener("scroll", headerOnScroll)
@@ -83,9 +81,9 @@ const Header = ({ siteTitle }) => {
     <Wrapper opacity={opacity}>
       <HeaderWrapper>
         <MenuBar>
-            <Link to="/">
-              <LogoWrapper src={Logo} alt="20IT index" />
-            </Link>
+          <Link to="/">
+            <LogoWrapper src={Logo} alt="20IT index" />
+          </Link>
           <MenuWrapper>
             <LinkMenu to="/">{t("case_studies_menu")}</LinkMenu>
             <LinkMenu to="/wiki">{t("wiki_menu")}</LinkMenu>
