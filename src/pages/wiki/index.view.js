@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 
 export const IconWrapper = styled.div`
@@ -8,7 +9,7 @@ export const TitleWrapper = styled.div`
   font-weight: bold;
 `
 export const TopicsWrapper = styled.div`
-${({ theme }) => theme.typography.description()}
+  ${({ theme }) => theme.typography.description()}
 `
 
 export const WikiWrapper = styled.div`
@@ -23,20 +24,19 @@ export const WikiWrapper = styled.div`
 export const DescWrapper = styled.div`
   padding: 28px 18px;
 
-    border-radius: 5px;
-    color: #fff;
-    background-color: ${props => props.color};
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 0;
-    opacity: 0;
-    transition: 0.3s ease;
-    cursor: pointer;
-
+  border-radius: 5px;
+  color: #fff;
+  background-color: ${props => props.color};
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     .desc {
