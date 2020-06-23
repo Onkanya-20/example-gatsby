@@ -30,18 +30,8 @@ const IndexPage = ({ data }) => {
     link: document.banner_link,
     linkLabel: document.banner_link_label,
     content: document.body.find(field => field.type === "content").fields,
-    contact: document.body.find(field => field.type === "contact").fields[0],
+    contact: document.body.find(field => field.type === "contact").primary,
   }
-
-  // const homeContent = {
-  //   title: documentContent.content_20it,
-  //   subLitle: documentContent.content_subtitle,
-  //   topics: documentContent.content_topics,
-  //   desc: documentContent.content_desc,
-  //   img: documentContent.content_image,
-  //   link: documentContent.content_link,
-  //   linkLabel: documentContent.content_link_label,
-  // }
 
   return (
     <Layout>
@@ -85,9 +75,9 @@ const IndexPage = ({ data }) => {
       {/* Contact */}
       <Contact
         facebookLink={bannerContent.contact.contact_facebook.url}
-        linkedinLink={bannerContent.contact.contack_linkedin.url}
-        email={bannerContent.contact.contact_email[0].text}
-        address={bannerContent.contact.contact_address[0].text}
+        linkedinLink={bannerContent.contact.contact_linkedin.url}
+        email={RichText.asText(bannerContent.contact.contact_email)}
+        address={RichText.asText(bannerContent.contact.contact_address)}
       />
     </Layout>
   )
@@ -133,17 +123,17 @@ export const query = graphql`
               ... on PRISMIC_BannerBodyContact {
                 type
                 label
-                fields {
-                  contack_linkedin {
+                primary {
+                  contact_address
+                  contact_email
+                  contact_facebook {
                     _linkType
                     ... on PRISMIC__ExternalLink {
                       _linkType
                       url
                     }
                   }
-                  contact_address
-                  contact_email
-                  contact_facebook {
+                  contact_linkedin {
                     _linkType
                     ... on PRISMIC__ExternalLink {
                       _linkType
