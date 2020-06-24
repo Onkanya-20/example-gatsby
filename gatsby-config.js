@@ -34,6 +34,14 @@ module.exports = {
         repositoryName: "20it-gatsby",
       },
     },
+    {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        availableLngs: ["en", "de"],
+        langKeyDefault: "en",
+        useLangKeyLayout: false,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

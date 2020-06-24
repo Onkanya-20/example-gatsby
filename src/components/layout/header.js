@@ -57,7 +57,7 @@ const LinkMenu = styled(Link)`
 
 const Header = ({ siteTitle }) => {
   const [opacity, setOpacity] = useState(0)
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   useEffect(() => {
     const headerOnScroll = () => {
@@ -88,6 +88,12 @@ const Header = ({ siteTitle }) => {
             <LinkMenu to="/">{t("case_studies_menu")}</LinkMenu>
             <LinkMenu to="/wiki">{t("wiki_menu")}</LinkMenu>
             <LinkMenu to="/">{t("vision_menu")}</LinkMenu>
+            <LinkMenu to="/" onClick={() => i18n.changeLanguage("de-de")}>
+              DE
+            </LinkMenu>
+            <LinkMenu to="/en" onClick={() => i18n.changeLanguage("en-us")}>
+              EN
+            </LinkMenu>
           </MenuWrapper>
         </MenuBar>
       </HeaderWrapper>

@@ -1,22 +1,21 @@
 import React from "react"
 
 // Components
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Banner from "../components/landing/banner"
+import Layout from "../layout"
+import SEO from "../seo"
+import Banner from "../landing/banner"
 import Content, {
   PathWrapper,
   DetailWrapper,
   TopicsWrapper,
-} from "../components/landing/content"
-import Customer from "../components/landing/customer"
-import Contact from "../components/landing/contact"
-import Wrapper from "../components/wrapper"
-import { ButtonLink } from "../components/button"
+} from "../landing/content"
+import Customer from "../landing/customer"
+import Contact from "../landing/contact"
+import Wrapper from "../wrapper"
+import { ButtonLink } from "../button"
 
 // data
 import { RichText } from "prismic-reactjs"
-import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
   const prismicBanner = data.prismic.allBanners.edges[0]
@@ -84,70 +83,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query {
-    prismic {
-      allBanners(lang: "de-de") {
-        edges {
-          node {
-            banner_title
-            banner_desc
-            banner_image
-            banner_link {
-              _linkType
-              ... on PRISMIC__ExternalLink {
-                _linkType
-                url
-              }
-            }
-            banner_link_label
-            body {
-              ... on PRISMIC_BannerBodyContent {
-                type
-                label
-                fields {
-                  content_desc
-                  content_image
-                  content_link {
-                    _linkType
-                    ... on PRISMIC__ExternalLink {
-                      _linkType
-                      url
-                    }
-                  }
-                  content_link_label
-                  content_path
-                  content_path_title
-                  content_topics
-                }
-              }
-              ... on PRISMIC_BannerBodyContact {
-                type
-                label
-                primary {
-                  contact_address
-                  contact_email
-                  contact_facebook {
-                    _linkType
-                    ... on PRISMIC__ExternalLink {
-                      _linkType
-                      url
-                    }
-                  }
-                  contact_linkedin {
-                    _linkType
-                    ... on PRISMIC__ExternalLink {
-                      _linkType
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
