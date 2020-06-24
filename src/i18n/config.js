@@ -8,7 +8,7 @@ const htmlLang = "en-de"
 const lang = ["en-us", "de-de"].find(e => e === htmlLang.toLowerCase()) || "en"
 i18n.use(initReactI18next).init({
   lng: lang,
-  fallbackLng: "en-en",
+  fallbackLng: "en-us",
   resources: {
     en,
     de,

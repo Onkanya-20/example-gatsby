@@ -1,15 +1,29 @@
 import React from "react"
-import Index from "../components/indexPage"
 import { graphql } from "gatsby"
 
-export default props => <Index data={props.data} />
+const NoData = ({ data }) => {
+  console.log("data ::", data)
+  return (
+    <section>
+      <h1>This Page Was Created Programmatically</h1>
+      <p>
+        No data was required to create this page — it’s just a React component!
+      </p>
+    </section>
+  )
+}
+
+export default NoData
 
 export const query = graphql`
-  query {
+  query($lang: String!) {
     prismic {
-      allBanners(lang: "en-us") {
+      allBanners(lang: $lang) {
         edges {
           node {
+            _meta {
+              lang
+            }
             banner_title
             banner_desc
             banner_image
