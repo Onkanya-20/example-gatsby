@@ -16,58 +16,19 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const template = require.resolve("./src/templates/home.js")
 
-  const enPage = await graphql(`
-    {
-      prismic {
-        allBanners {
-          edges {
-            node {
-              _meta {
-                lang
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  createPage({
+    path: `/en`,
+    component: template,
+    context: {
+      lang: "en-us",
+    },
+  })
 
-  enPage.data.prismic.allBanners.edges.forEach(edge => {
-    createPage({
-      path: `/en`,
-      component: template,
-      context: {
-        lang: "en-us",
-      },
-    })
+  createPage({
+    path: `/`,
+    component: template,
+    context: {
+      lang: "de-de",
+    },
   })
 }
-
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
-//   const pages = await graphql(`
-//     {
-//       prismic {
-//         allBanners {
-//           edges {
-//             node {
-//               _meta {
-//                 lang
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
-//   const template = require.resolve("./src/templates/home.js")
-//   pages.data.prismic.allBanners.edges.forEach(edge => {
-//     createPage({
-//       path: `/de-de`,
-//       component: template,
-//       context: {
-//         lang: "de-de",
-//       },
-//     })
-//   })
-// }

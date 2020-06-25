@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "20it-gatsby",
+        repositoryName: "20it",
       },
     },
     {

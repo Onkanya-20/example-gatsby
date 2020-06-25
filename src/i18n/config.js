@@ -5,10 +5,11 @@ import de from "../locales/de"
 
 const htmlLang = "en-de"
 
-const lang = ["en-us", "de-de"].find(e => e === htmlLang.toLowerCase()) || "en"
+const lang =
+  ["en-us", "de-de"].find(e => e === htmlLang.toLowerCase()) || "de-de"
 i18n.use(initReactI18next).init({
   lng: lang,
-  fallbackLng: "en-us",
+  fallbackLng: "de-de",
   resources: {
     en,
     de,

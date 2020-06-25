@@ -1,94 +1,14 @@
 import React from "react"
-
-// Components
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Banner from "../components/landing/banner"
-import Content, {
-  PathWrapper,
-  DetailWrapper,
-  TopicsWrapper,
-} from "../components/landing/content"
-import Customer from "../components/landing/customer"
-import Contact from "../components/landing/contact"
-import Wrapper from "../components/wrapper"
-import { ButtonLink } from "../components/button"
-
-// data
-import { RichText } from "prismic-reactjs"
+import Index from "../components/home"
 import { graphql } from "gatsby"
 
-const IndexPage = ({ data }) => {
-  const prismicBanner = data.prismic.allBanners.edges[0]
-  if (!prismicBanner) return null
-  const document = prismicBanner.node
-
-  const bannerContent = {
-    title: document.banner_title,
-    desc: document.banner_desc,
-    img: document.banner_image,
-    link: document.banner_link,
-    linkLabel: document.banner_link_label,
-    content: document.body.find(field => field.type === "content").fields,
-    contact: document.body.find(field => field.type === "contact").primary,
-  }
-
-  return (
-    <Layout>
-      <SEO title="Home" />
-      {/* Banner */}
-      <Banner
-        image={bannerContent.img.url}
-        title={<>{RichText.asText(bannerContent.title)}</>}
-        description={<>{RichText.asText(bannerContent.desc)}</>}
-        linkTo={bannerContent.link.url}
-        linkLabel={RichText.asText(bannerContent.linkLabel)}
-      />
-
-      <Wrapper>
-        {bannerContent.content.map((data, index) => (
-          <Content
-            image={data.content_image.url}
-            mirror={(index + 1) % 2 === 0 ? true : false}
-            key={`content-${index}`}
-          >
-            <PathWrapper>
-              <b>{RichText.asText(data.content_path_title)}</b>
-              {RichText.asText(data.content_path)}
-            </PathWrapper>
-            <TopicsWrapper>
-              {RichText.asText(data.content_topics)}
-            </TopicsWrapper>
-            <DetailWrapper>{RichText.asText(data.content_desc)}</DetailWrapper>
-            <ButtonLink href={data.content_link.url}>
-              {RichText.asText(data.content_link_label)}
-            </ButtonLink>
-          </Content>
-        ))}
-      </Wrapper>
-
-      {/* Trust content */}
-      <Wrapper>
-        <Customer />
-      </Wrapper>
-
-      {/* Contact */}
-      <Contact
-        facebookLink={bannerContent.contact.contact_facebook.url}
-        linkedinLink={bannerContent.contact.contact_linkedin.url}
-        email={RichText.asText(bannerContent.contact.contact_email)}
-        address={RichText.asText(bannerContent.contact.contact_address)}
-      />
-    </Layout>
-  )
-}
-
+const IndexPage = props => <Index data={props.data} />
 export default IndexPage
 
 export const query = graphql`
   query($lang: String!) {
     prismic {
-      allBanners(lang: $lang) {
+      allHomepages(lang: $lang) {
         edges {
           node {
             banner_title
@@ -103,7 +23,7 @@ export const query = graphql`
             }
             banner_link_label
             body {
-              ... on PRISMIC_BannerBodyContent {
+              ... on PRISMIC_HomepageBodyContent {
                 type
                 label
                 fields {
@@ -122,7 +42,7 @@ export const query = graphql`
                   content_topics
                 }
               }
-              ... on PRISMIC_BannerBodyContact {
+              ... on PRISMIC_HomepageBodyContact {
                 type
                 label
                 primary {
